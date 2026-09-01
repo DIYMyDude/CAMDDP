@@ -63,11 +63,15 @@ def create_preview_video(
         preview_file.name
     ]
 
-    subprocess.run(
+    result = subprocess.run(
         cmd,
-        check=True,
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL
+        capture_output=True,
+        text=True
     )
+    
+    print(result.stdout)
+    print(result.stderr)
+    
+    result.check_returncode()
 
     return preview_file.name
