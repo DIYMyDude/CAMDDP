@@ -28,6 +28,11 @@ def needs_browser_conversion(
         capture_output=True,
         text=True
     )
+    
+    print(result.stdout)
+    print(result.stderr)
+    
+    result.check_returncode()
 
     codec = (
         result.stdout
