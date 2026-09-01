@@ -158,15 +158,21 @@ if run_inference:
 
                 preview_video_path = temp_video_path
 
-                if needs_browser_conversion(
-                    temp_video_path
-                ):
-
-                    preview_video_path = (
-                        create_preview_video(
-                            temp_video_path
+                try:
+                
+                    if needs_browser_conversion(
+                        temp_video_path
+                    ):
+                
+                        preview_video_path = (
+                            create_preview_video(
+                                temp_video_path
+                            )
                         )
-                    )
+                
+                except Exception:
+                
+                    preview_video_path = temp_video_path
 
             try:
 
